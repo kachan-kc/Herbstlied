@@ -1,27 +1,3 @@
-%{
-Welcome to LilyPond
-===================
-
-Congratulations, LilyPond has been installed successfully.
-
-Now to take it for the first test run.
-
-  1. Save this file
-
-  2. Select
-
-       Compile > Typeset file
-
-  from the menu.
-
-  The file is processed, and
-
-  3.  The PDF viewer will pop up. Click one of the noteheads.
-
-
-That's it.  For more information, visit http://lilypond.org .
-
-%}
 \layout {
 %  #(set! paper-alist (cons '("mein Format" . (cons (* 28 cm) (* 20 cm))) paper-alist))
 %  #(set-default-paper-size "mein Format")
@@ -45,84 +21,80 @@ Akkorde = \chords { \time 6/8  \set chordNameLowercaseMinor = ##t  \germanChords
  d2:m s4 a2:m s4 g2 s4 e2 s4
  a2 s4 g2:m s4 f2 s4 e2 s4 
  a2 s4 g2:m s4 f2 s4 a2 s4
-  \break
-        \time 2/4 
-   \partial4 s4
+ \time 2/4 
+s4 s4
  d1 bes4 f4 g2 c1 a4 a4:7 a4
-         
+         a s2 d4
 }
 
 
-instrumentOne = \relative c' {\key d\minor  \time 6/8
+\score {
+\new ChoirStaff <<
+      \Akkorde
+
+    \new Staff {
+      \new Voice = "melody" {
+\relative c' {\key d\minor  \time 6/8
               
         d4.( d4) e16( d) | c4.( c8) r8 c | c4.( c8) r8 c | c4.( c8) r4 |
         d4. d4. | c4. c | b b | b r4. 
-        a'4.( a8) bes8 a8 | g8 g4.( g8) f8 | f4. f | e( e)
-        a4.( a8) bes8( a8) | g8 f4.( f4) | f4. f | a r4.   \bar "||"    \break
-        \time 2/4 
-  \repeat volta2 {\partial4 a8 a | d,4 a' | a4. c8 | c8 bes bes a | g4 g8 g |
-       c,4 g' | g4. bes8 | bes a a g | } \alternative {{ a4 }{\mark "Kasten 2. nur beim letzten Mal" a4 r4 | a8 a8 d,4 \bar"|."}}
+        a'4.( a8) bes8 a8 | g8 f4.( f8) f8 | f4. f | e( e)
+        a4.( a8) bes8( a8) | g8 f4.( f4) | f4. f | a^\markup { \italic{molto rit.} } r4.   \bar "||"  
+ \time 2/4          \tempo \markup {
+    \concat { \smaller \general-align #Y #DOWN \note #"4." #1 " = " \smaller \general-align #Y #DOWN \note #"2" #1     }
+  }
+  r4 \repeat volta3 { a8 a  d,4^\markup { \italic{a tempo} } a'  a4. c8  c8 bes bes a  g4 g8 g 
+       c,4 g'  g4. bes8  bes a a g } \alternative {{ a4 }{a4 r4  a8 a8 d,4 \bar"|."}}
+
       
 
 }
-
- \addlyrics {       <<
-      { \large \set stanza = #"1." Zimt durch -- weht die sü -- ße  Luft,
+      }
+    }
+    \new Lyrics = "firstVerse" \lyricsto "melody" {
+\large \set stanza = #"1." Zimt durch -- weht die sü -- ße  Luft,
                wür -- zig scharf im Ku -- chen -- duft.
                Ich hab ver -- ges -- sen, wie Ho -- nig schmeckt,
-               Lin -- den -- zau -- ber drin ver -- steckt.
-              
- }>>
-               
-               \break
-             << { \set stanza = #"Refrain:" 
+               Lin -- den -- zau -- ber drin ver -- steckt.      <<
+        { \set stanza = #"Refrain:" 
                Je -- der Be -- sen -- strich zieht Schlie -- ren durch die Zeit,
-               schau, das Mor -- gen -- licht taucht in das Ne -- bel -- kleid, -- kleid. Schu -- he nass.
-                }
-                      \new Lyrics {
-        \set associatedVoice  = "melody"  \large     
-              Zip -- fel -- mütz -- en -- kin -- der steh'n im Pfütz -- en -- nass,
-              Streu -- obst -- äpf -- el fall'n ins knie -- tief ho -- he Gras.
-                       } 
-                  >>     }
-
- instrumentdrei = \relative {\key d\minor  \time 6/8
-a'4.( a4) a8 | a4.( a8) r8 a8 | 
+               schau, das Mor -- gen -- licht taucht in das Ne -- bel -- kleid, Gras.	}
+	\new Lyrics = "secondVerse"
+        \with { alignBelowContext = #"firstVerse" } {
+	  \set associatedVoice = "melody"
+	  Zip -- fel -- mütz -- en -- kin -- der steh'n im Pfütz -- en -- nass,
+              Streu -- obst -- äpf -- el fall'n ins knie -- tief ho -- he 
+	}
+      >>
+       Schu -- he nass.
+    }
+    \new Voice = "harmony" {
+\relative c' {\key d\minor  \time 6/8
+a'4.( a4) a8  a4.( a8) r8 a8 | 
 g4.( g8) r g | f4.( f8) r4 |
 f4. f | e e | d d | e r | 
 a4. e4 g8 | f8 d4( d4) d8 | c2( d8) e | gis,4.( gis) |
-a4.( a8) b( cis) | d4. d | c4.( c8) d( e) | e4. r  \bar "||"   
-\break
-        \time 2/4  \break \clef "bass" 
-       \repeat volta2{ \partial4 b,8 cis|
-        d4 a d a d bes'8 a g4 g c, f c f a, a} \alternative {{ a8 a }{a4 r4 | a8 a8 d,4 \bar"|."}} 
+a4.( a8) b( cis) | d4. d | c4.( c8) d( e) | e4.^\markup { \italic{molto rit.}} r4.  \bar "||" \break
+  \time 2/4 \clef "bass" r4\repeat volta3{ b,8 cis|
+        d4^\markup { \italic{a tempo}} a d a d bes'8 a g4 g c, f c f a, a} \alternative {{ a8 a }{a4 r4  a8 a8 d4 \bar"|."}} 
  }
-
-\addlyrics {       <<
-      { \large \set stanza = #"1." Zimt durch -- weht die sü -- ße  Luft,
+    }
+       \new Lyrics = "zweite" \lyricsto "harmony" { %\set associatedVoice = "harmony"
+\large \set stanza = #"1." Zimt  durch -- weht die sü -- ße  Luft,
                wür -- zig scharf im Ku -- chen -- duft.
                Ich hab ver -- ges -- sen, wie Ho -- nig schmeckt,
-               Lin -- den -- zau -- ber drin ver -- steckt.
-              
- }>>
-               
-               \break
-             << { \set stanza = #"Refrain:" 
-      - - Pitsch -- Patsch, Pitsch -- Patsch, Pitsch, Pfütz -- en -- sprin -- gen, 
+               Lin -- den -- zau -- ber drin ver -- steckt.      <<
+        { \set stanza = #"Refrain:" 
+                - - Pitsch -- Patsch, Pitsch -- Patsch, Pitsch, Pfütz -- en -- sprin -- gen, 
+    Patsch, Pitsch -- Patsch, Herbst -- zeit ist so wunder -- schön. Schu -- he nass.	}
+	\new Lyrics = "zweiteunten"
+        \with { alignBelowContext = #"zweite" } {
+	  \set associatedVoice = "harmony"  - - Pitsch -- Patsch, Pitsch -- Patsch, Pitsch, Pfütz -- en -- sprin -- gen, 
       Pitsch -- Patsch, Pitsch -- Patsch, Pitsch -- Patsch, Herbst ist schön. Schu -- he nass.
-                }
-                      \new Lyrics {
-        \set associatedVoice  = "melody"       
-          wun -- der -- schön!    Patsch,  Pitsch -- Patsch, Pitsch, Pfütz -- en -- sprin -- gen, 
-      Pitsch -- Patsch, Pitsch -- Patsch, Herbst ist 
-                       } 
-                  >>     }
- 
-<<
-  \Akkorde
-  \new Staff \instrumentOne
-  \new Staff \instrumentdrei 
-
->>
-
-
+	}
+      >>
+       Schu -- he nass.
+    }
+        
+  >>
+}
