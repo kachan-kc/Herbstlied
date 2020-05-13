@@ -20,7 +20,7 @@ Akkorde = \chords { \time 6/8  \set chordNameLowercaseMinor = ##t  \germanChords
  d4:m s2 a2:m s4 c2 s4 f2 s4 
  d2:m s4 a2:m s4 g2 s4 e2 s4
  a2 s4 g2:m s4 f2 s4 e2 s4 
- a2 s4 g2:m s4 f2 s4 a2 s4
+ a2 s4 g4:m s8 f4 s4 s4 d4:m s8 a2 s4
  \time 2/4 
 s4 s4
  d1 bes4 f4 g2 c1 a4 a4:7 a4 s
