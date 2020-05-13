@@ -58,7 +58,7 @@ s4 s4
                schau, das Mor -- gen -- licht taucht in das Ne -- bel -- kleid, Zip -- fel -- Gras.	 }
 	\new Lyrics = "secondVerse"
         \with { alignBelowContext = #"firstVerse" } {
-	  \set associatedVoice = "melody"
+	  \set associatedVoice = "melody" \large
 	  mütz -- en -- kin -- der steh'n im Pfütz -- en -- nass,
               Streu -- obst -- äpf -- el fall'n ins knie -- tief ho -- he 
 	}
@@ -71,7 +71,7 @@ a'4.( a4) a8  a4.( a8) r8 a8 |
 g4.( g8) r g | f4.( f8) r4 |
 f4. f | e e | d d | e r | 
 a4. e4 g8 | f8 d4( d4) d8 | c2( d8) e | gis,4.( gis) |
-a4.( a8) b( cis) | d4. d | c4.( c8) d( e) | e4.^\markup { \italic{molto rit.}} r4.  \bar "||" \break
+a4.( a8) bes( cis) | d4. d | c4.( c8) d( e) | e4.^\markup { \italic{molto rit.}} r4.  \bar "||" \break
   \time 2/4 \clef "bass" r2  \repeat volta3{
         d,4^\markup { \italic{a tempo}} a d a d bes'8 a g4 g c, f c f a, a} \alternative {{ a8 a b8 cis }{a4 r4  a8 c8 d4 \bar"|."}} 
  }
@@ -86,7 +86,7 @@ a4.( a8) b( cis) | d4. d | c4.( c8) d( e) | e4.^\markup { \italic{molto rit.}} r
     Patsch, Pitsch -- Patsch, Pitsch Herbst -- zeit ist so wu -- nder -- schön. Schu -- he nass.	}
 	\new Lyrics = "zweiteunten"
         \with { alignBelowContext = #"zweite" } {
-	  \set associatedVoice = "harmony" schön Pitsch -- Patsch, Pitsch -- Patsch,  Pfütz -- en -- sprin -- gen, 
+	  \set associatedVoice = "harmony" \large schön Pitsch -- Patsch, Pitsch -- Patsch,  Pfütz -- en -- sprin -- gen, 
       Patsch, Pitsch -- Patsch, Pitsch  Herbst ist
 	}
       >>
