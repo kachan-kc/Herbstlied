@@ -27,6 +27,7 @@ s4 s4
          a s2 d4
 }
 
+#Hallo Welt
 
 \score {
 \new ChoirStaff <<
