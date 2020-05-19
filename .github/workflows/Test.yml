@@ -2,18 +2,7 @@
 
 name: CI
 
-name: Build LaTeX document
-on: [push]
-jobs:
-  build_latex:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v1
-      - name: Compile LaTeX document
-        uses: dante-ev/latex-action@master
-        with:
-          root_file: Herbstlied_Liedblatt.tex
+
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
@@ -43,3 +32,9 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+name: LaTeX compilation
+  uses: dante-ev/latex-action@v0.2.0
+  with:
+    # The root LaTeX file to be compiled
+    root_file:  Herbstlied_Liedblatt.tex        
+        
