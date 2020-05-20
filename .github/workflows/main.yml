@@ -14,8 +14,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: Herbstlied_Liedblatt.pdf
-      - name: ablegen des Build Artifacts
-        uses: actions/upload-release-asset@v2
-        with:
-          asset_name: Herbstlied_Liedblatt.pdf
+
 
