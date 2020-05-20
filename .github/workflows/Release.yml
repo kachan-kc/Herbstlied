@@ -6,9 +6,9 @@ name: Durchlauftest
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  create:
-    tags:
-      - v*
+  release:
+    types: # This configuration does not affect the page_build event above
+      - created
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,14 +41,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: Herbstlied_Liedblatt.pdf
+    - name: GitHub Upload Release Artifacts
+      uses: Roang-zero1/github-upload-release-artifacts-action@v2.1.0
+      
         
 
-    - name: Create a Release
-      uses: actions/create-release@v1
-      with:
-    # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
-        tag_name: github.GITHUB_REF
-    # The name of the release. For example, `Release v1.0.1`
-        release_name: github.GITHUB_REF
         
   
