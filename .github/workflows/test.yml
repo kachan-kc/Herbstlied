@@ -36,10 +36,10 @@ jobs:
       with:
         name: Herbstlied_Noten.pdf
         path: Rohdaten/Noten/Herbstlied_Noten.pdf
-    - name: Download math result for job 1
+    - name: Reinladen der Daten
       uses: actions/download-artifact@v2
       with:
-        name: Rohdaten/Noten
+        path: Rohdaten/Noten/Herbstlied_Noten.pdf
     - name: Set up Git repository
       uses: actions/checkout@v2
     - name: Compile LaTeX document
