@@ -1,9 +1,0 @@
-# This is a basic workflow to help you get started with Actions
-
-
-name: LaTeX compilation
-  uses: dante-ev/latex-action@v0.2.0
-  with:
-    # The root LaTeX file to be compiled
-    root_file:  Herbstlied_Liedblatt.tex        
-        
