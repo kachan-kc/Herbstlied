@@ -21,7 +21,25 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    # Runs a set of commands using the runners shell
+    - name: Run a multi-line script
+      run: |
+        sudo apt-get update
+        sudo apt-get install lilypond
+        cd Rohdaten/Noten
+        lilypond Herbstlied_Noten.ly 
+    - name: Download a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: Rohdaten/Noten/Herbstlied_Noten.pdf
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: Herbstlied_Liedblatt.tex
+    - name: Download a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: Herbstlied_Liedblatt.pdf
     - name: GitHub Upload Release Artifacts
       uses: Roang-zero1/github-upload-release-artifacts-action@v2.1.0
       with:
