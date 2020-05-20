@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: lilypond-uebersetzung
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -28,3 +28,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install lilypond
         lilypond Rohdaten/Noten/Herbstlied_Noten.ly
+    - name: Download a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: Rohdaten/Noten/Herbstlied_Noten.pdf      
+  
+        
