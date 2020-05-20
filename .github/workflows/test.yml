@@ -34,7 +34,7 @@ jobs:
     - name: Download a Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: Rohdaten/Noten
+        name: Herbstlied_Noten.pdf
         path: Rohdaten/Noten/Herbstlied_Noten.pdf
     - name: Download math result for job 1
       uses: actions/download-artifact@v2
