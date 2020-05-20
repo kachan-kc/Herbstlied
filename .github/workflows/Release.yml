@@ -43,6 +43,10 @@ jobs:
         path: Herbstlied_Liedblatt.pdf
     - name: GitHub Upload Release Artifacts
       uses: Roang-zero1/github-upload-release-artifacts-action@v2.1.0
+      with:
+        args: Herbstlied_Liedblatt.pdf
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
         
 
