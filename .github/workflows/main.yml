@@ -10,5 +10,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: Herbstlied_Liedblatt.tex
-      - name: Upload PDF
-        uses: actions/upload-artifact
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2
+        with:
+        # Artifact name
+        name: Test.pdf
