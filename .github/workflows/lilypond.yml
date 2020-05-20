@@ -41,6 +41,9 @@ jobs:
     - name: Download a Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        path: Herbstlied_Liedblatt.pdf       
+        path: Herbstlied_Liedblatt.pdf
+        
+    - name: action-push
+      uses: ludeeus/action-push@0.0.1        
   
         
