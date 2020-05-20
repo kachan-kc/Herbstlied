@@ -12,6 +12,3 @@ jobs:
           root_file: Herbstlied_Liedblatt.tex
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2
-        with:
-        # Artifact name
-        name: Test.pdf
