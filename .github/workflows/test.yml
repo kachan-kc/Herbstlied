@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: komplett
+name: test
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -34,7 +34,12 @@ jobs:
     - name: Download a Build Artifact
       uses: actions/upload-artifact@v2
       with:
+        name: Rohdaten/Noten
         path: Rohdaten/Noten/Herbstlied_Noten.pdf
+    - name: Download math result for job 1
+      uses: actions/download-artifact@v1
+      with:
+        name: Rohdaten/Noten
     - name: Set up Git repository
       uses: actions/checkout@v2
     - name: Compile LaTeX document
