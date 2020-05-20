@@ -13,4 +13,4 @@ jobs:
       - name: Download a Build Artifact
         uses: actions/upload-artifact@v2
         with:
-          path: Rohdaten
+          path: Herbstlied_Liedblatt.pdf
