@@ -27,7 +27,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install lilypond
-        lilypond Rohdaten/Noten/Herbstlied_Noten.ly
+        lilypond -o Rohdaten/Noten/Herbstlied_Noten.ly Rohdaten/Noten/Herbstlied_Noten.pdf
     - name: Download a Build Artifact
       uses: actions/upload-artifact@v2
       with:
