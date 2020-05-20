@@ -10,3 +10,4 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: Herbstlied_Liedblatt.tex
+          @actions/upload-artifact:  
