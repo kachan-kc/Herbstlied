@@ -27,3 +27,4 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install lilypond
+        lilypond Rohdaten/Noten/Herbstlied_Noten.ly
